@@ -1,0 +1,31 @@
+<% layout('layouts/boilerplate') %>
+<h1>Edit: <%= campground.title %></h1>
+<form action="/campgrounds/<%=campground._id %>?_method=PUT" method="POST" novalidate class="validated-form">
+    <div class="mb-3">
+        <label class='form-label'for="title">Title</label>
+        <input class='form-control'id="title" type="text" name="campground[title]" value="<%= campground.title %>" required>
+    </div>
+    <div class="mb-3">
+        <label class='form-label' for="location">Location</label>
+        <input class='form-control' id="location" type="text" name="campground[location]" value="<%= campground.location %>" required>
+    </div class="mb-3">
+    <div class="mb-3">
+        <label class='form-label' for="image">Image URL</label>
+        <input class='form-control' id="image" type="text" name="campground[image]" value="<%= campground.image %>" required>
+    </div class="mb-3">
+    <div class="mb-3">
+        <label class='form-label' for="description">Description</label>
+        <textarea class='form-control' id="description" type="text" name="campground[description]" value="<%= campground.description %>" required></textarea>  
+    </div class="mb-3">
+    <div class="mb-3">
+        <label class='form-label' for="Price">Price</label>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="price-label">$</span>
+            <input type="text" class="form-control" placeholder="0" aria-label="price" aria-describedby="price-label" name="campground[price]" value="<%= campground.price %>" required>
+        </div>
+    </div>
+    <div class="mb-3">
+        <button class="btn btn-success">Submit</button>
+    </div>
+</form>
+<a href="/campgrounds">All Campground</a>
